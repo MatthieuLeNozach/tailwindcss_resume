@@ -1,0 +1,4 @@
+temp/
+app/static/images/profile.png
+poetry.lock
+app/resume-content.yml
