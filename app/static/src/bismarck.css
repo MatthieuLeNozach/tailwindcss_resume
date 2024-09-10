@@ -1,0 +1,186 @@
+/* Include necessary Tailwind layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+/* Import Google Material Icons */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+/* Global Styles */
+/* Resume Section */
+#resume-content {
+  width: 210mm; /* A4 width */
+  height: 297mm; /* A4 height */
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensure content fits within A4 size */
+  padding: 40mm; /* Add padding to match typical document margins */
+  box-sizing: border-box;
+}
+
+
+/* Sidebar Styles */
+.sidebar {
+  @apply bg-bismarck-700 rounded-none w-1/3 p-1 grid gap-1;
+  flex-shrink: 1; /* Allow shrinking */
+  overflow: hidden; /* Prevent overflow */
+}
+
+.sidebar-child {
+  @apply bg-bismarck-600 rounded-none p-2;
+}
+
+.sidebar-child-title {
+  @apply text-white text-base font-semibold mb-1;
+}
+
+.sidebar-child-title-bar {
+  @apply bg-white h-0.5 mb-0 w-1/2; 
+}
+
+/* Sidebar Styles */
+.sidebar-subskills {
+  @apply flex flex-col;
+}
+
+.sidebar-subskill {
+  @apply flex items-center mb-0.5
+}
+
+.sidebar-subskill-icon {
+  @apply w-6 h-6 mr-2;
+  width: 18px;
+  height: 18px;
+}
+
+.sidebar-subskill-icon {
+  @apply mr-2 ;
+}
+
+.sidebar-child-content {
+  @apply mb-4 bg-bismarck-600;
+}
+
+.sidebar-child-subtitle {
+  @apply text-sm font-semibold mt-1 text-white;
+}
+
+.sidebar-child-text {
+  @apply text-sm font-light mt-0.5 text-white;
+}
+
+/* Contact Information Styles */
+.contact-container {
+  @apply p-2;
+}
+
+.contact-profile {
+  @apply flex flex-col items-center;
+}
+
+.contact-picture {
+  @apply w-24 h-24 mb-3 rounded-none object-cover;
+}
+
+.contact-name {
+  @apply text-2xl mb-1 font-bold text-white;
+}
+
+.contact-info {
+  @apply mt-0;
+}
+
+.contact-details {
+  @apply flex flex-col gap-0 text-white;
+}
+
+.contact-item {
+  @apply flex items-center mb-1;
+}
+
+.contact-item-icon {
+  @apply mr-2;
+}
+
+.contact-item-text {
+  @apply font-light text-sm;
+}
+
+.social-links {
+  @apply mt-1 flex flex-col gap-1 text-white;
+}
+
+.social-item {
+  @apply flex items-center;
+}
+
+.social-handle {
+  @apply ml-2 text-sm font-light;
+}
+
+
+
+/* Profile Styles */
+.profile-section {
+  @apply bg-white rounded-none p-2 flex-grow mb-0; /* Reduced padding and margin */
+}
+
+.profile-title {
+  @apply text-bismarck-700 text-3xl font-semibold mb-0; /* Reduced font size and margin */
+}
+
+.profile-title-bar {
+  @apply bg-bismarck-700 h-1 w-full mb-1; /* Reduced margin */
+}
+
+.profile-content {
+  @apply flex-grow bg-white text-bismarck-700 text-xs italic leading-relaxed p-1; /* Reduced padding */
+  max-height: 150px; /* Set a maximum height */
+  overflow-y: auto; /* Make it scrollable if content exceeds max height */
+}
+/* Main Content Styles */
+.main-content {
+  @apply w-2/3 p-1 flex flex-col gap-1 text-black;
+  flex-shrink: 1; /* Allow shrinking */
+  overflow: hidden; /* Prevent overflow */
+}
+
+.content-block {
+  @apply bg-white rounded-none p-2 flex-grow;
+}
+
+.content-title {
+  @apply text-lg font-bold mb-1 text-bismarck-600;
+}
+
+.content-title-bar {
+  @apply bg-bismarck-950 h-0.5 w-full mb-2;
+}
+
+.content-item {
+  @apply mb-2 text-xs font-light;
+}
+
+.content-item-title {
+  @apply text-sm font-bold text-bismarck-600;
+}
+
+.content-item-details {
+  @apply text-xs mt-0.5 font-light flex justify-between w-full;
+}
+
+.content-item-name {
+  @apply font-bold;
+}
+
+.content-item-period {
+  @apply text-right;
+}
+
+.content-item-text {
+  @apply text-xs font-light text-slate-600;
+}

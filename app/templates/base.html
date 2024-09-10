@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Contact -->
+            <div class="contact-container">
+                <div class="contact-profile">
+                    <div class="contact-picture-wrapper">
+                        <img src="{{ resume.sidebar.contact.picture }}" alt="Resume Picture" class="contact-picture">
+                    </div>
+                    <h2 class="contact-name">{{ resume.sidebar.contact.name }}</h2>
+                </div>
+                
+                <div class="contact-info">
+                    <!-- Personal Info: Phone, Nationality, Born -->
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <img src="{{ resume.sidebar.contact.personal_info.phone.icon }}" alt="Phone Icon" class="contact-item-icon">
+                            <span class="contact-item-text">{{ resume.sidebar.contact.personal_info.phone.number }}</span>
+                        </div>
+                        <div class="contact-item">
+                            <img src="{{ resume.sidebar.contact.personal_info.nationality.icon }}" alt="Nationality Icon" class="contact-item-icon">
+                            <span class="contact-item-text">{{ resume.sidebar.contact.personal_info.nationality.title }}</span>
+                        </div>
+                        <div class="contact-item">
+                            <img src="{{ resume.sidebar.contact.personal_info.born.icon }}" alt="Born Icon" class="contact-item-icon">
+                            <span class="contact-item-text">{{ resume.sidebar.contact.personal_info.born.date }}</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="social-links">
+                        <div class="social-item">
+                            <a href="{{ resume.sidebar.contact.social.linkedin.full_link }}" title="{{ resume.sidebar.contact.social.linkedin.title }}" class="flex items-center">
+                                <img src="{{ resume.sidebar.contact.social.linkedin.icon }}" alt="LinkedIn Icon" class="contact-item-icon">
+                                <span class="social-handle">{{ resume.sidebar.contact.social.linkedin.title }}</span>
+                            </a>
+                        </div>
+                        <div class="social-item">
+                            <a href="{{ resume.sidebar.contact.social.github.full_link }}" title="{{ resume.sidebar.contact.social.github.title }}" class="flex items-center">
+                                <img src="{{ resume.sidebar.contact.social.github.icon }}" alt="GitHub Icon" class="contact-item-icon">
+                                <span class="social-handle">{{ resume.sidebar.contact.social.github.title }}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="sidebar-child">
+                <h3 class="sidebar-child-title">{{ resume.sidebar.skills.title }}</h3>
+                <div class="sidebar-child-title-bar"></div>
+                {% for skill_key, skill in resume.sidebar.skills.content.items() %}
+                    <div class="sidebar-child-content">
+                        <h4 class="sidebar-child-subtitle">{{ skill.title }}</h4>
+                        <div class="sidebar-subskills">
+                            {% for subskill_key, subskill in skill.content.items() %}
+                                <div class="sidebar-subskill">
+                                    <img src="{{ subskill.icon }}" alt="{{ subskill.title }} Icon" class="sidebar-subskill-icon" title="{{ subskill.title }}">
+                                    <span class="sidebar-child-text">{{ subskill.content }}</span>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+
+            <!-- Languages -->
+            <div class="sidebar-child">
+                <h3 class="sidebar-child-title">{{ resume.sidebar.languages.title }}</h3>
+                <div class="sidebar-child-title-bar"></div>
+                {% for lang_key, lang in resume.sidebar.languages.content.items() %}
+                    <div class="sidebar-child-content">
+                        <h4 class="sidebar-child-subtitle">{{ lang.title }}</h4>
+                        <p class="sidebar-child-text">{{ lang.content }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <!-- Interests -->
+            <div class="sidebar-child">
+                <h3 class="sidebar-child-title">{{ resume.sidebar.interests.title }}</h3>
+                <div class="sidebar-child-title-bar"></div>
+                {% for interest_key, interest in resume.sidebar.interests.content.items() %}
+                    <div class="sidebar-child-content">
+                        <h4 class="sidebar-child-subtitle">{{ interest.title }}</h4>
+                        <p class="sidebar-child-text">{{ interest.content }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Profile -->
+            <div class="profile-section">
+                <h1 class="profile-title">{{ resume.main_content.profile.title }}</h1>
+                <div class="profile-title-bar"></div>
+                <div class="profile-content">{{ resume.main_content.profile.content | replace('\n', '<br>') | safe }}</div>
+            </div>
+
+            <!-- Education -->
+            <div class="content-block">
+                <h3 class="content-title">{{ resume.main_content.education.title }}</h3>
+                <div class="content-title-bar"></div>
+                {% for edu_key, edu in resume.main_content.education.content.items() %}
+                    <div class="content-item">
+                        <h4 class="content-item-title">{{ edu.title }}</h4>
+                        <div class="content-item-details">
+                            <span class="content-item-name">{{ edu.name }}</span>
+                            <span class="content-item-period">{{ edu.period }}</span>
+                        </div>
+                        <div class="content-item-text">{{ edu.content | replace('\n', '<br>') | safe }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <!-- Projects -->
+            <div class="content-block">
+                <h3 class="content-title">{{ resume.main_content.projects.title }}</h3>
+                <div class="content-title-bar"></div>
+                {% for project_key, project in resume.main_content.projects.content.items() %}
+                    <div class="content-item">
+                        <h4 class="content-item-title">{{ project.title }}</h4>
+                        <div class="content-item-details">
+                            <span class="content-item-name">{{ project.name }}</span>
+                        </div>
+                        <div class="content-item-text">{{ project.content | replace('\n', '<br>') | safe }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <!-- Experience -->
+            <div class="content-block">
+                <h3 class="content-title">{{ resume.main_content.experience.title }}</h3>
+                <div class="content-title-bar"></div>
+                {% for exp_key, exp in resume.main_content.experience.content.items() %}
+                    <div class="content-item">
+                        <h4 class="content-item-title">{{ exp.title }}</h4>
+                        <div class="content-item-details">
+                            <span class="content-item-name">{{ exp.name }}</span>
+                            <span class="content-item-period">{{ exp.period }}</span>
+                        </div>
+                        <div class="content-item-text">{{ exp.content | replace('\n', '<br>') | safe }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

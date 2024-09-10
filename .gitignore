@@ -2,3 +2,4 @@ temp/
 app/static/images/profile.png
 poetry.lock
 app/resume-content.yml
+app/__pycache__/main.cpython-310.pyc

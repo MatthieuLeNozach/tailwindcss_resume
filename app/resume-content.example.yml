@@ -1,0 +1,139 @@
+description:
+  name: "Your Job Title"
+  version: "1"
+  tailwind_style: "example-style"
+
+sidebar:
+  contact:
+    name: "Name SURNAME"
+    picture: "static/images/profile.example.jpg"
+    personal_info:
+      phone: 
+        number: "06.12.34.56.78"
+        icon: "static/images/icons/phone.svg"
+      nationality:
+        title: "Nationality"
+        icon: "static/images/icons/flag.svg"
+      born: 
+        date: "01/01/1900"
+        icon: "static/images/icons/calendar.svg"
+    social:
+      linkedin:
+        title: "Linkedin"
+        full_link: "https://linkedin.com/in/username"
+        icon: "static/images/icons/linkedin.svg"
+      github:
+        title: "Github page"
+        full_link: "https://github.com/username"
+        icon: "static/images/icons/github.svg"
+
+  skills:
+    title: "Skills"
+    content: 
+      skill_1:
+        title: "Ops"
+        content:
+          subskill_1:
+            title: "Operating Systems"
+            icon: "static/images/icons/it.svg"
+            content: "Linux, Docker, Terraform"
+          subskill_2:
+            title: "Languages"
+            icon: "static/images/icons/coding.svg"
+            content: "Python, SQL, Bash"
+          subskill_3:
+            title: "Automation"
+            icon: "static/images/icons/process.svg"
+            content: "Airflow"
+      skill_2:
+        title: "Data"
+        content:
+          subskill_1: 
+            title: "Databases"
+            icon: "static/images/icons/database.svg"
+            content: "PostgreSQL, AWS S3"
+          subskill_2: 
+            title: "Data Transformations"
+            icon: "static/images/icons/mining.svg"
+            content: "Pandas, DuckDB"
+          subskill_3: 
+            title: "Visualization"
+            icon: "static/images/icons/chart.svg"
+            content: "Seaborn, Plotly"
+          subskill_4: 
+            title: "Machine Learning"
+            icon: "static/images/icons/ai.svg"
+            content: "Scikit-Learn, PyTorch"
+
+  languages:
+    title: "Languages"
+    content:
+      lang_1:
+        title: "Language 1"
+        content: "C1 spoken / written"
+      lang_2:
+        title: "Language 2"
+        content: "C1 spoken / written"
+
+  interests:
+    title: "Interests"
+    content:
+      interest_1:
+        title: "Interest 1"
+        content: "Description of interest 1"
+      interest_2:
+        title: "Interest 2"
+        content: "Description of interest 2"
+
+main_content:
+  profile:
+    title: "Job Title"
+    content: |
+      Brief profile description here...
+
+  education:
+    title: "Education"
+    content: 
+      edu_1:
+        title: "Degree / Certification 1"
+        name: "Institution Name 1"
+        period: "Start Date – End Date"
+        content: |
+          Details of the education 
+          or certification program...
+      edu_2:
+        title: "Degree / Certification 2"
+        name: "Institution Name 2"
+        period: "Start Date – End Date"
+        content: |
+          Additional details 
+          about the program...
+
+  projects:
+    title: "Projects"
+    content: 
+      project_1:
+        title: "Project 1"
+        name: "Company / Context"
+        content: |
+          Detailed description of 
+          project 1...
+
+  experience:
+    title: "Professional Experience"
+    content: 
+      exp_1:
+        title: "Job Title 1"
+        name: "Company Name 1"
+        period: "Start Date – End Date"
+        content: |
+          Detailed information 
+          about job role and responsibilities...
+      exp_2:
+        title: "Job Title 2"
+        name: "Company Name 2"
+        period: "Start Date – End Date"
+        content: |
+          More details about job 
+          responsibilities and 
+          achievements...
