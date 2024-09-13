@@ -1,4 +1,5 @@
 import os
+import argparse
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.templating import Jinja2Templates
@@ -7,18 +8,26 @@ import subprocess
 from contextlib import asynccontextmanager
 from fastapi.responses import HTMLResponse
 import yaml
-
 import logging
+import uvicorn
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("uvicorn")
 
-# Load YAML content
-with open("resume-content.yml", "r") as file:
-    resume_data = yaml.safe_load(file)
+def parse_args():
+    parser = argparse.ArgumentParser(description="FastAPI Résumé App")
+    parser.add_argument(
+        "--yaml",
+        default="resume-content.yml",
+        help="Path to the YAML file containing resume content (default: ./resume-content.yml)"
+    )
+    return parser.parse_args()
 
 
-
+def load_resume_data(filepath: str = "resume-content.yml"):
+    with open(filepath, "r") as file:
+        return yaml.safe_load(file)
+    
 
 
 @asynccontextmanager
@@ -54,6 +63,11 @@ async def lifespan(app: FastAPI):
     yield
 
 
+
+args = parse_args()
+resume_data_file = args.yaml
+resume_data = load_resume_data(resume_data_file)
+
 app = FastAPI(lifespan=lifespan, default_response_class=HTMLResponse)
 
 app.add_middleware(
@@ -80,22 +94,18 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/", response_class=HTMLResponse)
 async def index(request:Request):
-    print(resume_data)
+    
+    global resume_data
+    resume_data = load_resume_data()
+    logger.info(resume_data)
     return templates.TemplateResponse("base.html", {"request": request, "resume": resume_data})
 
 
-
-from weasyprint import HTML
-from fastapi.responses import FileResponse
-
-
-@app.get("/export")
-async def export_to_pdf(request: Request):
-    # Render the HTML content without the footer
-    html_content = templates.TemplateResponse("base.html", {"request": request, "resume": resume_data}).body.decode("utf-8")
-    
-    # Generate PDF from HTML using WeasyPrint
-    pdf_file_path = 'resume.pdf'
-    HTML(string=html_content).write_pdf(pdf_file_path)
-    
-    return FileResponse(pdf_file_path, media_type='application/pdf', filename='resume.pdf')
+if __name__ == "__main__":
+    uvicorn.run(
+        "main:app",
+        host="0.0.0.0", 
+        port=8000,       
+        reload=True,
+        reload_dirs=['.', 'static/css']
+    )

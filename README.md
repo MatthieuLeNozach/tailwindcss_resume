@@ -153,6 +153,7 @@ A simple FastApi app to generate résumés from templates.
         @apply bg-bismarck-700 h-1 w-full mb-1;
     }
 
+
     .profile-content {
         @apply flex-grow bg-white text-bismarck-700 text-xs italic leading-relaxed p-1;
         max-height: 150px;
