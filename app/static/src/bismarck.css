@@ -17,13 +17,14 @@
   height: 297mm; /* A4 height */
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden; /* Ensure content fits within A4 size */
-  padding: 40mm; /* Add padding to match typical document margins */
+  overflow: hidden; /* This is already correct */
+  padding: 20mm; /* Add padding to match typical document margins */
   box-sizing: border-box;
+  display: flex; /* Add this to ensure proper layout */
 }
 
+/* #================= Sidebar Styles =================# */
 
-/* Sidebar Styles */
 .sidebar {
   @apply bg-bismarck-700 rounded-none w-1/3 p-1 grid gap-1;
   flex-shrink: 1; /* Allow shrinking */
@@ -42,7 +43,6 @@
   @apply bg-white h-0.5 mb-0 w-1/2; 
 }
 
-/* Sidebar Styles */
 .sidebar-subskills {
   @apply flex flex-col;
 }
@@ -73,7 +73,8 @@
   @apply text-sm font-light mt-0.5 text-white;
 }
 
-/* Contact Information Styles */
+/* #================= Contact Information Styles =================# */
+
 .contact-container {
   @apply p-2;
 }
@@ -83,7 +84,10 @@
 }
 
 .contact-picture {
-  @apply w-24 h-24 mb-3 rounded-none object-cover;
+  @apply mb-3 object-cover;
+  width: 200px; 
+  height: 200px; 
+  border-radius: 50%; /* Make the image rounded */
 }
 
 .contact-name {
@@ -122,15 +126,14 @@
   @apply ml-2 text-sm font-light;
 }
 
+/* #================= Profile Styles =================# */
 
-
-/* Profile Styles */
 .profile-section {
-  @apply bg-white rounded-none p-2 flex-grow mb-0; /* Reduced padding and margin */
+  @apply bg-white rounded-none p-2 flex flex-col mb-2; /* Changed to flex-col and added more margin-bottom */
 }
 
 .profile-title {
-  @apply text-bismarck-700 text-3xl font-semibold mb-0; /* Reduced font size and margin */
+  @apply text-bismarck-700 text-3xl font-semibold mb-1; /* Added margin-bottom */
 }
 
 .profile-title-bar {
@@ -138,19 +141,31 @@
 }
 
 .profile-content {
-  @apply flex-grow bg-white text-bismarck-700 text-xs italic leading-relaxed p-1; /* Reduced padding */
-  max-height: 150px; /* Set a maximum height */
-  overflow-y: auto; /* Make it scrollable if content exceeds max height */
-}
-/* Main Content Styles */
-.main-content {
-  @apply w-2/3 p-1 flex flex-col gap-1 text-black;
-  flex-shrink: 1; /* Allow shrinking */
-  overflow: hidden; /* Prevent overflow */
+  @apply bg-white text-bismarck-700 text-xs italic leading-relaxed mt-2; /* Added margin-top */
 }
 
-.content-block {
-  @apply bg-white rounded-none p-2 flex-grow;
+/* #================= Main Content Styles =================# */
+
+.main-content {
+  @apply w-2/3 p-0.5 flex flex-col gap-0.5 text-black;
+  flex-shrink: 0; /* Change to 0 to prevent shrinking */
+  overflow: hidden; /* Add this to prevent scrolling */
+  max-height: 100%; /* Add this to ensure it doesn't exceed the container height */
+}
+
+.content-block-1 {
+  @apply bg-white rounded-none p-0.5 flex-grow;
+  flex: 2.5 1 0%; /* 3/8 of the height */
+}
+
+.content-block-2 {
+  @apply bg-white rounded-none p-0.5 flex-grow;
+  flex: 2.5 1 0%; /* 2/8 of the height */
+}
+
+.content-block-3 {
+  @apply bg-white rounded-none p-0.5 flex-grow;
+  flex: 3 1 0%; /* 3/8 of the height */
 }
 
 .content-title {
@@ -158,11 +173,11 @@
 }
 
 .content-title-bar {
-  @apply bg-bismarck-950 h-0.5 w-full mb-2;
+  @apply bg-bismarck-950 h-0.5 w-full mb-1;
 }
 
 .content-item {
-  @apply mb-2 text-xs font-light;
+  @apply mb-0.5 text-xs font-light;
 }
 
 .content-item-title {
@@ -170,7 +185,7 @@
 }
 
 .content-item-details {
-  @apply text-xs mt-0.5 font-light flex justify-between w-full;
+  @apply text-xs mt-0 font-light flex justify-between w-full;
 }
 
 .content-item-name {

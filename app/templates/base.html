@@ -108,8 +108,10 @@
                 <div class="profile-content">{{ resume.main_content.profile.content | replace('\n', '<br>') | safe }}</div>
             </div>
 
+
+
             <!-- Education -->
-            <div class="content-block">
+            <div class="content-block content-block-1">
                 <h3 class="content-title">{{ resume.main_content.education.title }}</h3>
                 <div class="content-title-bar"></div>
                 {% for edu_key, edu in resume.main_content.education.content.items() %}
@@ -125,7 +127,7 @@
             </div>
 
             <!-- Projects -->
-            <div class="content-block">
+            <div class="content-block content-block-2">
                 <h3 class="content-title">{{ resume.main_content.projects.title }}</h3>
                 <div class="content-title-bar"></div>
                 {% for project_key, project in resume.main_content.projects.content.items() %}
@@ -140,7 +142,7 @@
             </div>
 
             <!-- Experience -->
-            <div class="content-block">
+            <div class="content-block content-block-3">
                 <h3 class="content-title">{{ resume.main_content.experience.title }}</h3>
                 <div class="content-title-bar"></div>
                 {% for exp_key, exp in resume.main_content.experience.content.items() %}
