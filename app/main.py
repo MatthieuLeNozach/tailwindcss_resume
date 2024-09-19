@@ -63,7 +63,7 @@ async def lifespan(app: FastAPI):
     yield
 
 
-
+global resume_data_file
 args = parse_args()
 resume_data_file = args.yaml
 resume_data = load_resume_data(resume_data_file)
@@ -96,7 +96,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 async def index(request:Request):
     
     global resume_data
-    resume_data = load_resume_data()
+    resume_data = load_resume_data(resume_data_file)
     logger.info(resume_data)
     return templates.TemplateResponse("base.html", {"request": request, "resume": resume_data})
 
