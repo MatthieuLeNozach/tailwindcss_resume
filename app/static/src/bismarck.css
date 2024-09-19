@@ -155,17 +155,17 @@
 
 .content-block-1 {
   @apply bg-white rounded-none p-0.5 flex-grow;
-  flex: 2.5 1 0%; /* 3/8 of the height */
+  flex: 2.2 1 0%;
 }
 
 .content-block-2 {
   @apply bg-white rounded-none p-0.5 flex-grow;
-  flex: 2.5 1 0%; /* 2/8 of the height */
+  flex: 2.5 1 0%; 
 }
 
 .content-block-3 {
   @apply bg-white rounded-none p-0.5 flex-grow;
-  flex: 3 1 0%; /* 3/8 of the height */
+  flex: 3 1 0%;
 }
 
 .content-title {
@@ -177,7 +177,7 @@
 }
 
 .content-item {
-  @apply mb-0.5 text-xs font-light;
+  @apply mb-4 text-xs font-light;
 }
 
 .content-item-title {
