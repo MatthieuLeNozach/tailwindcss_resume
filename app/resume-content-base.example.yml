@@ -32,7 +32,7 @@ sidebar:
         icon: "static/images/icons/github.svg"
 
   skills:
-    title: "Hard Skills"
+    title: "Skills"
     content:
       skill_1:
         title: "Ops"
@@ -79,21 +79,6 @@ sidebar:
             title: "Frontend"
             icon: "static/images/icons/web.svg"
             content: "!changethis icon/text"
-
-  soft_skills:
-    title: Soft Skills
-    content:
-      skill_1:
-        title: ' '
-        content:
-          subskill_1:
-            title: Group
-            icon: static/images/icons/group.svg
-            content: "!changethis Team soft skills"
-          subskill_2:
-            title: Personal
-            icon: static/images/icons/idea.svg
-            content: "!changethis Personal soft skills"
 
   languages:
     title: "Languages"
