@@ -22,18 +22,12 @@
                 <div class="contact-info">
                     <!-- Personal Info: Phone, Nationality, Born -->
                     <div class="contact-details">
-                        <div class="contact-item">
-                            <img src="{{ resume.sidebar.contact.personal_info.phone.icon }}" alt="Phone Icon" class="contact-item-icon">
-                            <span class="contact-item-text">{{ resume.sidebar.contact.personal_info.phone.number }}</span>
-                        </div>
-                        <div class="contact-item">
-                            <img src="{{ resume.sidebar.contact.personal_info.nationality.icon }}" alt="Nationality Icon" class="contact-item-icon">
-                            <span class="contact-item-text">{{ resume.sidebar.contact.personal_info.nationality.title }}</span>
-                        </div>
-                        <div class="contact-item">
-                            <img src="{{ resume.sidebar.contact.personal_info.born.icon }}" alt="Born Icon" class="contact-item-icon">
-                            <span class="contact-item-text">{{ resume.sidebar.contact.personal_info.born.date }}</span>
-                        </div>
+                        {% for key, info in resume.sidebar.contact.personal_info.items() %}
+                            <div class="contact-item">
+                                <img src="{{ info.icon }}" alt="{{ key|capitalize }} Icon" class="contact-item-icon">
+                                <span class="contact-item-text">{{ info.title }}</span>
+                            </div>
+                        {% endfor %}
                     </div>
                     
                     <!-- Social Links -->
