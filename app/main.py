@@ -97,8 +97,10 @@ async def index(request:Request):
     
     global resume_data
     resume_data = load_resume_data(resume_data_file)
-    logger.info(resume_data)
-    return templates.TemplateResponse("base.html", {"request": request, "resume": resume_data})
+    #logger.info(resume_data)
+    html_file = str(resume_data["description"]["html_file"])
+    logger.info(f"HTML File: {html_file}")
+    return templates.TemplateResponse(html_file, {"request": request, "resume": resume_data})
 
 
 if __name__ == "__main__":
