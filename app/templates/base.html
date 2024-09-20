@@ -11,6 +11,7 @@
         <!-- Sidebar -->
         <div class="sidebar">
             <!-- Contact -->
+            {% if resume.sidebar.contact %}
             <div class="contact-container">
                 <div class="contact-profile">
                     <div class="contact-picture-wrapper">
@@ -32,23 +33,21 @@
                     
                     <!-- Social Links -->
                     <div class="social-links">
-                        <div class="social-item">
-                            <a href="{{ resume.sidebar.contact.social.linkedin.full_link }}" title="{{ resume.sidebar.contact.social.linkedin.title }}" class="flex items-center">
-                                <img src="{{ resume.sidebar.contact.social.linkedin.icon }}" alt="LinkedIn Icon" class="contact-item-icon">
-                                <span class="social-handle">{{ resume.sidebar.contact.social.linkedin.title }}</span>
-                            </a>
-                        </div>
-                        <div class="social-item">
-                            <a href="{{ resume.sidebar.contact.social.github.full_link }}" title="{{ resume.sidebar.contact.social.github.title }}" class="flex items-center">
-                                <img src="{{ resume.sidebar.contact.social.github.icon }}" alt="GitHub Icon" class="contact-item-icon">
-                                <span class="social-handle">{{ resume.sidebar.contact.social.github.title }}</span>
-                            </a>
-                        </div>
+                        {% for key, social in resume.sidebar.contact.social.items() %}
+                            <div class="social-item">
+                                <a href="{{ social.full_link }}" title="{{ social.title }}" class="flex items-center">
+                                    <img src="{{ social.icon }}" alt="{{ social.title }} Icon" class="contact-item-icon">
+                                    <span class="social-handle">{{ social.title }}</span>
+                                </a>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
+            {% endif %}
 
             <!-- Skills -->
+            {% if resume.sidebar.skills %}
             <div class="sidebar-child">
                 <h3 class="sidebar-child-title">{{ resume.sidebar.skills.title }}</h3>
                 <div class="sidebar-child-title-bar"></div>
@@ -66,9 +65,31 @@
                     </div>
                 {% endfor %}
             </div>
+            {% endif %}
 
+            <!-- Soft Skills -->
+            {% if resume.sidebar.soft_skills %}
+            <div class="sidebar-child">
+                <h3 class="sidebar-child-title">{{ resume.sidebar.soft_skills.title }}</h3>
+                <div class="sidebar-child-title-bar"></div>
+                {% for skill_key, skill in resume.sidebar.soft_skills.content.items() %}
+                    <div class="sidebar-child-content">
+                        <h4 class="sidebar-child-subtitle">{{ skill.title }}</h4>
+                        <div class="sidebar-subskills">
+                            {% for subskill_key, subskill in skill.content.items() %}
+                                <div class="sidebar-subskill">
+                                    <img src="{{ subskill.icon }}" alt="{{ subskill.title }} Icon" class="sidebar-subskill-icon" title="{{ subskill.title }}">
+                                    <span class="sidebar-child-text">{{ subskill.content }}</span>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
 
             <!-- Languages -->
+            {% if resume.sidebar.languages %}
             <div class="sidebar-child">
                 <h3 class="sidebar-child-title">{{ resume.sidebar.languages.title }}</h3>
                 <div class="sidebar-child-title-bar"></div>
@@ -79,8 +100,10 @@
                     </div>
                 {% endfor %}
             </div>
+            {% endif %}
 
             <!-- Interests -->
+            {% if resume.sidebar.interests %}
             <div class="sidebar-child">
                 <h3 class="sidebar-child-title">{{ resume.sidebar.interests.title }}</h3>
                 <div class="sidebar-child-title-bar"></div>
@@ -91,20 +114,22 @@
                     </div>
                 {% endfor %}
             </div>
+            {% endif %}
         </div>
 
         <!-- Main Content -->
         <div class="main-content">
             <!-- Profile -->
+            {% if resume.main_content.profile %}
             <div class="profile-section">
                 <h1 class="profile-title">{{ resume.main_content.profile.title }}</h1>
                 <div class="profile-title-bar"></div>
                 <div class="profile-content">{{ resume.main_content.profile.content | replace('\n', '<br>') | safe }}</div>
             </div>
-
-
+            {% endif %}
 
             <!-- Education -->
+            {% if resume.main_content.education %}
             <div class="content-block content-block-1">
                 <h3 class="content-title">{{ resume.main_content.education.title }}</h3>
                 <div class="content-title-bar"></div>
@@ -119,8 +144,10 @@
                     </div>
                 {% endfor %}
             </div>
+            {% endif %}
 
             <!-- Projects -->
+            {% if resume.main_content.projects %}
             <div class="content-block content-block-2">
                 <h3 class="content-title">{{ resume.main_content.projects.title }}</h3>
                 <div class="content-title-bar"></div>
@@ -134,8 +161,10 @@
                     </div>
                 {% endfor %}
             </div>
+            {% endif %}
 
             <!-- Experience -->
+            {% if resume.main_content.experience %}
             <div class="content-block content-block-3">
                 <h3 class="content-title">{{ resume.main_content.experience.title }}</h3>
                 <div class="content-title-bar"></div>
@@ -150,6 +179,7 @@
                     </div>
                 {% endfor %}
             </div>
+            {% endif %}
         </div>
     </div>
 </body>
